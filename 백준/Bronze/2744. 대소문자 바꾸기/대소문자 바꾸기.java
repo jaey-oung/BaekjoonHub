@@ -8,9 +8,9 @@ class Main {
 
         for (int i = 0; i < str.length(); i++) {
             if ('a' <= ans[i] && ans[i] <= 'z') // 소문자인 경우
-                ans[i] = (char)('A' + ans[i] - 'a'); // 대문자로 변환
+                ans[i] = (char)('A' + ans[i] - 'a'); // 'A'로부터의 거리를 구하고 'a'에 더해서 소문자로 변환
             else // 대문자인 경우
-                ans[i] = (char)('a' + ans[i] - 'A'); // 소문자로 변환
+                ans[i] = (char)('a' + ans[i] - 'A'); // 'a'로부터의 거리를 구하고 'A'에 더해서 대문자로 변환
         }
         System.out.println(ans);
     }

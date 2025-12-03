@@ -11,7 +11,7 @@ class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String str = sc.next().toUpperCase(); // 입력을 대문자로 변환
+        String str = sc.next().toUpperCase(); // 입력된 영단어를 대문자로 변환
         int[] count = getAlphabetCount(str); // 각 알파벳 출현 빈도 계산
         int maxCount = -1; // 최대 빈도수
         char maxAlphabet = '?'; // 결과값

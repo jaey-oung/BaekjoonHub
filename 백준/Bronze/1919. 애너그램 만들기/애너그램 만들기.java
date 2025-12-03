@@ -11,12 +11,12 @@ class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String a = sc.next();
-        String b = sc.next();
-        int ans = 0;
+        String a = sc.next(); // 첫 번째 영단어 입력
+        String b = sc.next(); // 두 번째 영단어 입력
+        int ans = 0; // 제거할 문자 개수
 
-        int[] countA = getAlphabetCount(a); // 각 알파벳 출현 빈도 계산
-        int[] countB = getAlphabetCount(b);
+        int[] countA = getAlphabetCount(a); // 첫 번째 단어의 알파벳 출현 빈도 계산
+        int[] countB = getAlphabetCount(b); // 두 번째 단어의 알파벳 출현 빈도 계산
 
         for (int i = 0; i < 26; i++)
             ans += Math.abs(countA[i] - countB[i]); // 절댓값으로 차이 계산
