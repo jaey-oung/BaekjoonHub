@@ -1,30 +1,35 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 class Main {
-    public static char getDigitChar(int digit) {
-        if (digit < 10)
-            return (char) ('0' + digit);
-        else
-            return (char) ('A' + (digit - 10));
-    }
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int B = Integer.parseInt(st.nextToken());
+        
+        System.out.println(convert(N, B));
+    }
 
-        int decimalNumber = Integer.parseInt(st.nextToken());
-        int targetBase = Integer.parseInt(st.nextToken());
-        StringBuilder result = new StringBuilder();
+    private static String convert(int number, int base) {
+        StringBuilder sb = new StringBuilder();
 
-        while (decimalNumber > 0) {
-            int remainder = decimalNumber % targetBase;
-            result.append(getDigitChar(remainder));
-            decimalNumber /= targetBase;
+        while (number > 0) {
+            int remainder = number % base;
+            sb.append(toDigit(remainder));
+            number /= base;
         }
 
-        bw.write(result.reverse() + "\n");
-        bw.flush();
+        return sb.reverse().toString();
+    }
+
+    private static char toDigit(int value) {
+        if (value < 10) {
+            return (char) ('0' + value);
+        } else {
+            return (char) ('A' + value - 10);
+        }
     }
 }
